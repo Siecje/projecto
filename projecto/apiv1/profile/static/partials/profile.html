@@ -29,8 +29,19 @@
   </div>
   <div class="large-6 columns">
     <h4>Projects</h4>
-    <ul>
-      <li>This feature is not ready yet.</li>
-    </ul>
+    <div ng-controller="ProjectSwitcher">
+      <ul ng-show="projectsOwned.length > 0">
+        <label>Owned by you</label>
+        <li ng-repeat="project in projectsOwned">
+          <a href="#/projects/{[ project.key ]}/">{[ project.name ]}</a>
+        </li>
+      </ul>
+      <ul ng-show="projectsParticipating.length > 0">
+        <label>Participating</label>
+        <li ng-repeat="project in projectsParticipating">
+          <a href="#/projects/{[ project.key ]}/">{[ project.name ]}</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
